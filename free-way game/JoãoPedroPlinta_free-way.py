@@ -20,14 +20,13 @@ azul = (16, 167, 227)
 vermelho = (255, 0, 0)
 roxo = (128, 0, 128)
 
-# Função caminho relativo
 def caminho_arquivo(nome:str):
     caminho = os.path.dirname(os.path.realpath(__file__))
-    caminhoAbsoluto = os.path.join(caminho, "img/", nome)
+    caminhoAbsoluto = Path(os.path.join(caminho, "img/", nome))
     return caminhoAbsoluto
 
 # Carrega o background
-background = pygame.image.load(('img/background-frogger.png'))
+background = pygame.image.load(caminho_arquivo("background-frogger.png"))
 background = pygame.transform.scale(background, (largura_tela, altura_tela))
 
 # Configura o sapo
@@ -58,15 +57,15 @@ velocidades_carro_grupo1 = [3, 4, 5, 6]
 velocidades_carro_grupo2 = [2, 3, 4, 5]
 
 # Carrega a imagem do carro
-imagem_carro = pygame.image.load('img/carro.png')
+imagem_carro = pygame.image.load(caminho_arquivo("carro.png"))
 imagem_carro = pygame.transform.scale(imagem_carro, (largura_carro, altura_carro))
 
 # Carrega a imagem do sapo
-imagem_sapo = pygame.image.load('img/frogger.png')
+imagem_sapo = pygame.image.load(caminho_arquivo("frogger.png"))
 imagem_sapo = pygame.transform.scale(imagem_sapo, (tamanho_sapo, tamanho_sapo))
 
 # Carrega a imagem de derrota
-imagem_derrota = pygame.image.load('img/perdeu.png')
+imagem_derrota = pygame.image.load(caminho_arquivo("perdeu.png"))
 imagem_derrota = pygame.transform.scale(imagem_derrota, (largura_tela, altura_tela))
 
 # Configura o relógio
